@@ -6,7 +6,7 @@ module.exports = {
                 // please disable libraries you don't need
                 "jquery": true,
                 "bootstrap_3": true,
-                "angular": false,
+                "angular": true,
                 "underscore": true,
                 "underscore.string": false,
                 "mdi": true,
@@ -23,6 +23,9 @@ module.exports = {
             "assets": [{
                 "from": "resources/assets/**/*",
                 "to": "assets"
+            }, {
+                "from": "../../node_modules/qrcodejs/qrcode.min.js",
+                "to": "assets/dist/qrcode"
             }],
             // browsersync configurations (ex: ip, port and path)
             "server": false,
@@ -38,14 +41,10 @@ module.exports = {
                 "settings": {
                     "js": [{
                         "src": [
-                            "angular-1/modules/**/*",
-                            "angular-1/components/**/*",
-                            "angular-1/controllers/**/*",
-                            "angular-1/directives/**/*",
-                            "angular-1/providers/**/*",
-                            "angular-1/filters/**/*",
-                            "app.ts",
                             "app.js"
+                        ],
+                        "watch": [
+                            "angular-1/**/*.js",
                         ],
                         "dest": "/",
                         "name": "app.js",
@@ -64,11 +63,15 @@ module.exports = {
                         "path": "/",
                         "src": ["*.pug"],
                         "watch": ["layout/**/*.pug"],
-                        "path": "/"
+                        "dest": "/"
                     }, {
                         "path": "/DL",
                         "src": ["DL/**/*.pug"],
-                        "path": "/DL"
+                        "dest": "/DL"
+                    }, {
+                        "path": "/tpl",
+                        "src": ["tpl/**/*.pug"],
+                        "dest": "/assets/tpl"
                     }]
                 }
             }
@@ -86,34 +89,6 @@ module.exports = {
                 "path": "/",
                 "port": 3000
             },
-            "tasks": {
-                "settings": {
-                    "pug": [{
-                        "path": "/",
-                        "src": ["*.pug"],
-                        "watch": ["layout/**/*.pug"],
-                        "dest": "/"
-                    }, {
-                        "path": "/DL",
-                        "src": ["DL/**/*.pug"],
-                        "dest": "/DL"
-                    }]
-                }
-            }
-        },
-        "html-panel": {
-            "source": "base-panel",
-            "paths": {
-                "root": "../html-panel",
-                "assets_root": "../html-panel/assets",
-                "clean_paths": [
-                    "../html-panel"
-                ]
-            },
-            "server": {
-                "path": "/",
-                "port": 4000
-            }
         },
         "phonegap": {
             "paths": {

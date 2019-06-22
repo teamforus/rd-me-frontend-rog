@@ -1,3 +1,5 @@
+let api_url = "http://localhost:8500/api/v1";
+
 module.exports = {
     // browsersync configs
     server: {
@@ -23,7 +25,7 @@ module.exports = {
     // pass data to pug templates
     platforms_data: {
         html: {
-            foo: "bar"
+            api_url: api_url
         }
     }
 };

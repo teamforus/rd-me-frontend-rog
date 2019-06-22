@@ -1,9 +1,12 @@
 doctype
-html(lang="en")
+html(lang="en" ng-controller='BaseController')
     include includes/head
-    body
+    body(modal-scroll-braker)
         include includes/header
         block content
         include includes/footer
-        include includes/modalContact
+        
+        modals-root
+
+        //- include includes/modalContact
         include includes/scripts

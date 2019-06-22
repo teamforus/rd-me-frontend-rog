@@ -1,4 +1,5 @@
 require('./JStick/jquery.JStick');
+require('./angular-1/angular-app');
 
 function validateElement(element){
 
