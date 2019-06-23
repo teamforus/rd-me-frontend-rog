@@ -1939,7 +1939,7 @@ modals-root{
 
                     input {
                         width: 100%;
-                        background: #eff2f4;
+                        background: #eff2f4 !important;
                     }
                 }
 
@@ -1959,6 +1959,7 @@ modals-root{
                             cursor: default;
                             color: rgba(0, 0, 0, 0.2);
                             background: #eff2f4 !important;
+                            opacity: 1;
 
                             &:hover, &:active, &:focus {
                                 color: rgba(0, 0, 0, 0.2) !important;
