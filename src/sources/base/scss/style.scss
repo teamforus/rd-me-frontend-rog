@@ -1853,6 +1853,7 @@ modals-root{
                 font-weight: 500;
                 text-align: left;
                 margin: 0 0 10px;
+                font-size: 28px;
             }
     
             .modal-subtitle {
@@ -1938,6 +1939,7 @@ modals-root{
 
                     input {
                         width: 100%;
+                        background: #eff2f4;
                     }
                 }
 
@@ -1956,9 +1958,11 @@ modals-root{
                         &.disabled {
                             cursor: default;
                             color: rgba(0, 0, 0, 0.2);
+                            background: #eff2f4 !important;
 
                             &:hover, &:active, &:focus {
                                 color: rgba(0, 0, 0, 0.2) !important;
+                                background: #eff2f4 !important;
                             }
                         }
                     }
