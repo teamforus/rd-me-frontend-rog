@@ -5,11 +5,14 @@
     .modal-content(ng-show="$ctrl.showQrCodeBlock")
         .modal-close.mdi.mdi-close(ng-click="$ctrl.close()")
 
-        .modal-title popup_auth.labels.join
-        .modal-subtitle popup_auth.labels.scancode
+        h4.modal-title Login met e-mail
+        .modal-subtitle Fill your email address to receive a login link in your email box
 
-        .block.block-auth-qr-code
-            .qr_code#auth_qrcode
+        form.form(ng-submit="$ctrl.signInEmailForm.submit()"): .modal-email-row
+            .form-group
+                input(ng-model="$ctrl.signInEmailForm.values.primary_email" type="email" placeholder="E-mail").form-control.email-auth
+                .form-error(ng-repeat="error in $ctrl.signInEmailForm.errors.primary_email" ng-bind="error")
+            .form-group: button(type="submit").btn.main_button.modal-login-btn Login
 
         .modal-footer
             //-.footer-text {{ "popup_auth.labels.timelimit" | translate }}
