@@ -1888,6 +1888,7 @@ modals-root{
                 color: #222;
                 transition: color .4s;
                 z-index: 1;
+                font-size: 20px;
             }
             .modal-icon-rounded {
                 margin: 15px;
@@ -1922,6 +1923,10 @@ modals-root{
             margin-bottom: 10px;
         }
 
+        .modal-footer {
+            border-top: none;
+        }
+
         .modal-email-row {
             display: flex;
 
@@ -1946,6 +1951,16 @@ modals-root{
                         padding: 0;
                         line-height: 46px;
                         font: 500 14px $bf;
+                        outline: none;
+
+                        &.disabled {
+                            cursor: default;
+                            color: rgba(0, 0, 0, 0.2);
+
+                            &:hover, &:active, &:focus {
+                                color: rgba(0, 0, 0, 0.2) !important;
+                            }
+                        }
                     }
                 }
             }

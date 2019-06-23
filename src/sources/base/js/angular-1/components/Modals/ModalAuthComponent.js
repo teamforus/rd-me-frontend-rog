@@ -10,6 +10,8 @@ let ModalAuthComponent = function(
     let qrCode = null;
     let timeout = null;
 
+    $ctrl.email = '';
+
     $ctrl.$onInit = () => {
         qrCodeEl = document.getElementById('auth_qrcode');
         qrCode = new QRCode(qrCodeEl, {

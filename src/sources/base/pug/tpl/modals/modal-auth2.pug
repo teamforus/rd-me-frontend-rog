@@ -9,10 +9,8 @@
         .modal-subtitle Fill your email address to receive a login link in your email box
 
         form.form(ng-submit="$ctrl.signInEmailForm.submit()"): .modal-email-row
-            .form-group
-                input(ng-model="$ctrl.signInEmailForm.values.primary_email" type="email" placeholder="E-mail").form-control.email-auth
-                .form-error(ng-repeat="error in $ctrl.signInEmailForm.errors.primary_email" ng-bind="error")
-            .form-group: button(type="submit").btn.main_button.modal-login-btn Login
+            .form-group: input(ng-model="$ctrl.email" type="email" placeholder="E-mail").form-control.email-auth
+            .form-group: button(type="submit" ng-class="{disabled: $ctrl.email.length == 0}").btn.main_button.modal-login-btn Login
 
         .modal-footer
             //-.footer-text {{ "popup_auth.labels.timelimit" | translate }}
