@@ -37,12 +37,11 @@ let BaseController = function(
     };
 
     $rootScope.$on('auth:update', (event) => {
-        $rootScope.loadAuthUser().then(() => $state.reload(), console.error);
+        $rootScope.loadAuthUser();
     });
 
     $rootScope.signOut = () => {
         AuthService.signOut();
-        $state.go('home');
         $rootScope.auth_user = false;
     };
 

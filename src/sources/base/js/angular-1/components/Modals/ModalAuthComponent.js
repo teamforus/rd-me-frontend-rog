@@ -1,6 +1,7 @@
 let ModalAuthComponent = function(
     $rootScope,
     $timeout,
+    ModalService,
     IdentityService,
     CredentialsService
 ) {
@@ -35,16 +36,20 @@ let ModalAuthComponent = function(
         $ctrl.requestAuthQrToken();
     };
 
-    $ctrl.applyAccessToken = function(access_token) {
+    $ctrl.applyAccessToken = function(access_token, data) {
         CredentialsService.set(access_token);
         $rootScope.$broadcast('auth:update');
         $ctrl.close();
+        
+        ModalService.open('shareConfirm', {
+            data: data
+        });
     };
 
     $ctrl.checkAccessTokenStatus = (data) => {
         IdentityService.checkAccessToken(data.check_token).then((res) => {
             if (res.data.access_token) {
-                $ctrl.applyAccessToken(res.data.access_token);
+                $ctrl.applyAccessToken(res.data.access_token, data);
             } else if (res.data.access_token === null) {
                 timeout = $timeout(function() {
                     $ctrl.checkAccessTokenStatus(data);
@@ -61,8 +66,8 @@ let ModalAuthComponent = function(
 
             qrCode.makeCode(
                 JSON.stringify({
-                    type: 'auth_token',
-                    'value': $ctrl.authToken
+                    type: 'auth_token_share',
+                    value: $ctrl.authToken
                 })
             );
 
@@ -83,6 +88,7 @@ module.exports = {
     controller: [
         '$rootScope',
         '$timeout',
+        'ModalService',
         'IdentityService',
         'CredentialsService',
         ModalAuthComponent

@@ -10,6 +10,7 @@ app.controller('BaseController', require('./controllers/BaseController'));
 
 // Modal Components
 app.component('modalAuthComponent', require('./components/Modals/ModalAuthComponent'));
+app.component('modalShareConfirmComponent', require('./components/Modals/ModalShareConfirmComponent'));
 
 // Services
 app.service('AuthService', require('./services/AuthService'));
